@@ -1,7 +1,7 @@
 /*
  * Testing
  * ICS314 Calendaring Project
- * @Bryson Yogi
+ * @Brian Logan
  */
 
 import java.io.*;
@@ -36,17 +36,19 @@ public class icsFileGenerator
 			+"END:VCALENDAR\n";
 		
 
-		try (PrintWriter outPut = new PrintWriter ("iCal.ics"))	{
-			outPut.print(calendarDetails);
-			System.out.println("iCal had been created");
+		try {
+			//Creates an iCal.ics file provided with the info above
+			BufferedWriter outPut = new BufferedWriter(new FileWriter(new File("iCal.ics")));
+			outPut.write(calendarDetails);
+			outPut.close();
+			System.out.println("iCal has been made.");
 		}
-		
-		//catches if no file had been made
-		catch (IOException e){
+
+		// catches if no file had been made
+		catch (IOException e) {
 			System.out.println("No file found");
+
 		}
-		
-		
 	}
 
 }
