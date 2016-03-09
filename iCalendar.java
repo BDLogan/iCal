@@ -138,7 +138,7 @@ public class iCalendar
      
      System.out.println("OPTIONAL: Would like to put your Geographic Location (1 - Yes 2 - No)");
      answer2 = input.nextInt();
-     if(answer2 >= 0){
+     if(answer2 > 0 && answer2 < 2){
        //int classInput = input.nextInt();
        switch(answer2){
        case 1:
