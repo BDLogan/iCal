@@ -3,7 +3,6 @@ package icalendar;
 
 import java.io.*;
 import java.util.Scanner;
-import icalendar.eventMaker;
 
 /**
  * 
