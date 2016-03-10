@@ -86,53 +86,36 @@ public class iCalendar
      String op = scanner.next();
      
      switch(op){
-       case "Private":
-         System.out.println("Setting to Private" + "\n");
-      	 classification = "PRIVATE";
-         inputEvent.classification(classification);
-         break;
-       case "private":
-         System.out.println("Setting to Private" + "\n");
-    	 classification = "PRIVATE";
-         inputEvent.classification(classification);
-         break;
-       case "public":
-         System.out.println("Setting to Public" + "\n");  
-      	 classification = "PUBLIC";
-         inputEvent.classification(classification);
-         break;
-       case "Public":
-         System.out.println("Setting to Public" + "\n");      	   
-    	 classification = "PUBLIC";
-         inputEvent.classification(classification);
-         break;
-       case "Confidential":
-         System.out.println("Setting to Confidential" + "\n");    
-    	 classification = "CONFIDENTIAL";
-         inputEvent.classification(classification);
-         break;
-       case "confidential":
-         System.out.println("Setting to Confidential" + "\n");     
-    	 classification = "CONFIDENTIAL";
-         inputEvent.classification(classification);
-         break;
-       case "Skip":
-         System.out.println("Classification skipped setting to Public");
-         classification = "PUBLIC";
-         inputEvent.classification(classification);
-         break;
-       case "skip":
-         System.out.println("Classification skipped setting to Public");
-         classification = "PUBLIC";
-         inputEvent.classification(classification);
-         break;
-       default:
-         System.out.println("Setting to Public" + "\n");
-         classification = "PUBLIC";
-         inputEvent.classification(classification);
-         break;
-       }
-    	 
+     case "Private":
+     case "private":
+       System.out.println("Setting to Private" + "\n");
+  	 classification = "PRIVATE";
+       inputEvent.classification(classification);
+       break;
+     case "public":
+     case "Public":
+       System.out.println("Setting to Public" + "\n");      	   
+  	 classification = "PUBLIC";
+       inputEvent.classification(classification);
+       break;
+     case "Confidential":
+     case "confidential":
+       System.out.println("Setting to Confidential" + "\n");     
+  	 classification = "CONFIDENTIAL";
+       inputEvent.classification(classification);
+       break;
+     case "Skip":
+     case "skip":
+       System.out.println("Classification skipped setting to Public");
+       classification = "PUBLIC";
+       inputEvent.classification(classification);
+       break;
+     default:
+       System.out.println("Setting to Public" + "\n");
+       classification = "PUBLIC";
+       inputEvent.classification(classification);
+       break;
+     } 	 
    
      
      System.out.println("OPTIONAL: Would like to put your Geographic Location (1 - Yes 2 - No)");
