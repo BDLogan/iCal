@@ -54,7 +54,7 @@ public class eventMaker {
 	}
 
 	/***********************************
-	 * Returns the event details *
+	 * Returns the event details       *
 	 ***********************************/
 
 	public String returnProdid() {
