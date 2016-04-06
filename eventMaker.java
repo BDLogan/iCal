@@ -9,6 +9,7 @@ public class eventMaker {
 	private String description;
 	private String geoLocation;
 	private String classification;
+	private String filename;
 
 	public eventMaker() {
 		prodid("- Forgot Team name // Event Maker");
@@ -19,6 +20,7 @@ public class eventMaker {
 		name(toString());
 		geoLocation(toString());
 		classification(toString());
+		filename(toString());
 	}
 
 	public void prodid(String prodid) {
@@ -51,6 +53,12 @@ public class eventMaker {
 
 	public void classification(String classification) {
 		this.classification = classification;
+	}
+
+
+	public void filename(String filename) {
+		this.filename = filename;
+		
 	}
 
 	/***********************************
@@ -88,5 +96,11 @@ public class eventMaker {
 	public String returnGeoLocation() {
 		return geoLocation;
 	}
+
+	public String returnFilename() {
+		return filename;
+		
+	}
+
 
 }
