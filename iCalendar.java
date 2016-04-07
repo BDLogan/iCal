@@ -165,7 +165,7 @@ public class iCalendar {
 			}
 
 		}
-		return null;
+		return filename;
 
 	}
 	
