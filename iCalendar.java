@@ -22,7 +22,8 @@ public class iCalendar {
 			System.out.println("Do you want to create a new file? Y/N");
 			answer3 = input.nextLine();
 			if (answer3.equals("Y")) {
-				scheduleEvent(Event);
+				list.add(scheduleEvent(Event));
+				outputEvent(Event); // outputs the information into an .ics file
 			} else if (answer3.equals("N")) {
 				loop = false;
 			} else {
@@ -30,10 +31,9 @@ public class iCalendar {
 			}
 		}
 		input.close();
-		outputEvent(Event); // outputs the information into an .ics file
 	}
 
-	public static void scheduleEvent(eventMaker inputEvent) {
+	public static String scheduleEvent(eventMaker inputEvent) {
 		String startTime;
 		String endTime;
 		String month;
@@ -165,6 +165,7 @@ public class iCalendar {
 			}
 
 		}
+		return null;
 
 	}
 	
