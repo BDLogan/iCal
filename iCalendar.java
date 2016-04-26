@@ -11,25 +11,53 @@ import java.util.Scanner;
  */
 
 public class iCalendar {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		eventMaker Event = new eventMaker(); // Uses the eventMaker class to help get the information for the event and make the .ics file.
 		Scanner input = new Scanner(System.in);
 		ArrayList<String> list = new ArrayList<String>();
 		boolean loop = true;
 
 		String answer3;
-		while (loop == true) {
-			System.out.println("Do you want to create a new file? Y/N");
-			answer3 = input.nextLine();
-			if (answer3.equals("Y")) {
-				list.add(scheduleEvent(Event));
-				outputEvent(Event); // outputs the information into an .ics file
-			} else if (answer3.equals("N")) {
-				loop = false;
-			} else {
-				System.out.println("Invalid input, needs y or n");
+		
+		Scanner scanner = new Scanner(System.in);
+		// OPTIONAL classification of the file
+		System.out.println("1). Make a new Event" + "\n" + "2). Import Files");
+		String mainMenu = scanner.next();
+
+		switch (mainMenu) {
+		case "1":
+			while (loop == true) {
+				System.out.println("Do you want to create a new file? Y/N");
+				answer3 = input.nextLine();
+				if (answer3.equals("Y")) {
+					list.add(scheduleEvent(Event));
+					outputEvent(Event); // outputs the information into an .ics
+										// file
+				} else if (answer3.equals("N")) {
+					loop = false;
+				} else {
+					System.out.println("Invalid input, needs y or n");
+				}
+				
 			}
+		case "2":
+			while (loop == true) {
+				System.out.println("Do you want to import a file Y/N");
+				answer3 = input.nextLine();
+				if (answer3.equals("Y")) {
+					list.add(importFiles());
+					outputEvent(Event); // outputs the information into an .ics file
+				} else if (answer3.equals("N")) {
+					loop = false;
+				} else {
+					System.out.println("Invalid input, needs y or n");
+				}
+				
+			}
+			
 		}
+		// Sort.startsort(list);
+		System.out.println(list);
 		input.close();
 	}
 
@@ -75,6 +103,14 @@ public class iCalendar {
 		System.out.println("Start time of the event (000000 - 240000:");
 		startTime = input.nextLine();
 		inputEvent.dateTimeStart(startTime);
+		
+/*		System.out.println("Event MONTH (Format MM):");
+		month = input.nextLine();
+		System.out.println("Event DAY (Format DD):");
+		day = input.nextLine();
+		System.out.println("Event YEAR (Format YYYY):");
+		year = input.nextLine();*/
+
 		System.out.println("End time of the event (000000 - 240000:");
 		endTime = input.nextLine();
 		inputEvent.dateTimeEnd(endTime);
@@ -212,5 +248,50 @@ public class iCalendar {
 
 		}
 
+	}
+	
+	public static String importFiles() throws IOException{
+		
+		System.out.println("Write the name of the file:");
+		Scanner scanner2 = new Scanner(System.in);
+		String fName = scanner2.next();
+
+
+		BufferedReader br = new BufferedReader(new FileReader(fName));
+		
+		System.out.println(fName);
+
+/*		try {
+			// Creates an iCal.ics file provided with the info above
+			BufferedWriter outPut = new BufferedWriter(new FileWriter(new File(eventMaker.returnFilename() + ".ics")));
+			outPut.write(calendarDetails);
+			outPut.close();
+
+		}
+
+		// catches if no file had been made
+		catch (IOException e) {
+			System.out.println("No file found");
+
+		}*/
+		try {
+		    StringBuilder sb = new StringBuilder();
+		    String line = br.readLine();
+
+		    while (line != null) {
+		        sb.append(line);
+		        sb.append(System.lineSeparator());
+		        line = br.readLine();
+
+		    }
+		    String everything = sb.toString();
+			System.out.println(everything);
+
+		} finally {
+			
+		    br.close();
+		}
+		return fName;
+		
 	}
 }
