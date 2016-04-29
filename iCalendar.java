@@ -27,60 +27,27 @@ public class iCalendar {
 		      System.out.println("|      -Main Menu-       |");
 		      System.out.println("|  [1] Make New Event    |");
 		      System.out.println("|  [2] Import .ics File  |");
-		      System.out.println("|  [3] Clear Screen      |");
-		      System.out.println("|  [4] Exit              |");
+		      System.out.println("|  [3] Edit .ics File    |");
+		      System.out.println("|  [4] Clear Screen      |");
+		      System.out.println("|  [5] Exit              |");
 		      System.out.println("+------------------------+");
 		      System.out.print("\nEnter your selection: ");
 			
 		      String mainMenu = scanner.next();
 		      switch (mainMenu) {
 				case "1":
-/*					while (loop == true) {
-						System.out.println("Do you want to create a new file? Y/N");
-						answer3 = input.nextLine();
-						if (answer3.equals("Y")) {
-							list.add(scheduleEvent(Event));
-							outputEvent(Event); // outputs the information into an .ics
-												// file
-						} else if (answer3.equals("N")) {
-							loop = false;
-						} else {
-							System.out.println("Invalid input, needs y or n");
-						}
-					}*/
 						list.add(scheduleEvent(Event));
 						outputEvent(Event); // outputs the information into an .ics file
 						break;
-					
-					
-					
 		        case "2":
-		          // Print Calendar
-		          
-/*		        	while (loop == true) {
-						System.out.println("Do you want to import a file Y/N");
-						answer3 = input.nextLine();
-						if (answer3.equals("Y")) {
-							list.add(importFiles());
-							outputEvent(Event); // outputs the information into an .ics file
-						} else if (answer3.equals("N")) {
-							loop = false;
-						} else {
-							System.out.println("Invalid input, needs y or n");
-						}
-						
-					}*/
 						list.add(importFiles());
 						outputEvent(Event); // outputs the information into an .ics file
 						System.out.println("Invalid input, needs y or n");
 		          break;
-		          
-
-
-		        case "3":
+		        case "4":
 		          iCalendar.clearScreen();
 		          break;
-		        case "4":
+		        case "5":
 		          System.out.println("Exiting Event Calendar Creator...");
 		          run = false;
 		          System.out.println(list);
@@ -140,13 +107,6 @@ public class iCalendar {
 		System.out.println("Start time of the event (000000 - 240000:");
 		startTime = input.nextLine();
 		inputEvent.dateTimeStart(startTime);
-		
-/*		System.out.println("Event MONTH (Format MM):");
-		month = input.nextLine();
-		System.out.println("Event DAY (Format DD):");
-		day = input.nextLine();
-		System.out.println("Event YEAR (Format YYYY):");
-		year = input.nextLine();*/
 
 		System.out.println("End time of the event (000000 - 240000:");
 		endTime = input.nextLine();
@@ -304,19 +264,6 @@ public class iCalendar {
 		
 		System.out.println(fName);
 
-/*		try {
-			// Creates an iCal.ics file provided with the info above
-			BufferedWriter outPut = new BufferedWriter(new FileWriter(new File(eventMaker.returnFilename() + ".ics")));
-			outPut.write(calendarDetails);
-			outPut.close();
-
-		}
-
-		// catches if no file had been made
-		catch (IOException e) {
-			System.out.println("No file found");
-
-		}*/
 		try {
 		    StringBuilder sb = new StringBuilder();
 		    String line = br.readLine();
